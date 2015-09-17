@@ -13,4 +13,9 @@ for i in range(0,n-1,1):
             temp = lista[i]
             lista[i] = lista[j]	
             lista[j] = temp			
+#comando para imprimir na tela a lista em ordem crescente; 
 print("lista em ordem crescente", lista)
+#comando para imprimir na tela os cincos menores valores da lista; 0:5 significa o intervalo entre 0 e 5, com 5 aberto
+print("Cinco menores valores", lista[0:5])
+#comando para imprimir os cinco maiores valores; n-5:n representa o intervalo dos 5 ultimos elementos
+print("Cinco maiores valores", lista[n-5:n])
