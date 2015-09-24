@@ -19,6 +19,8 @@ plt.ylabel("Números")
 plt.savefig("fig/bubble-inicio.png")
 #fechar operação
 plt.close()
+#nova variável para contagem das trocas 
+trocas = 0
 # i é o elemeto a ser fixado. 0 é o inicio, n-1 é ultimo elemento a ser analisado e 1 é o intervalo
 for i in range(0,n-1,1):
 # j é o elemento que será comparado com i de modo que sempre será diferente do mesmo. i+1 é o início.
@@ -28,7 +30,15 @@ for i in range(0,n-1,1):
         if lista[i] > lista[j]:
             temp = lista[i]
             lista[i] = lista[j]	
-            lista[j] = temp				
+            lista[j] = temp
+            trocas = trocas + 1			
+            plt.figure()	
+            plt.plot(range(0,n), lista, "ok")
+            plt.title("Lista com ordem crescente")
+            plt.xlabel("Índices")
+            plt.ylabel("Números")
+            plt.savefig("fig/bubble-troca-{}.png".format(trocas))
+            plt.close()			
 plt.figure()	
 plt.plot(range(0,n), lista, "ok")
 plt.title("Lista com ordem crescente")
