@@ -21,10 +21,25 @@ plt.savefig("fig/bubble-inicio.png")
 plt.close()
 #nova variável para contagem das trocas 
 trocas = 0
+#nova variável para todas as posições havendo troca ou não
+posicao = 0
 # i é o elemeto a ser fixado. 0 é o inicio, n-1 é ultimo elemento a ser analisado e 1 é o intervalo
 for i in range(0,n-1,1):
 # j é o elemento que será comparado com i de modo que sempre será diferente do mesmo. i+1 é o início.
     for j in range(i+1,n,1):
+#cada vez que o programa passar por essa linha o valor da variável será acrescido de uma unidade para controle de todas as posições possíveis	
+        posicao = posicao + 1
+        plt.figure()	
+        plt.plot(range(0,n), lista, "ok")
+#coordenadas nas quais o símbolo será vermelho		
+        plt.plot(i, lista[i], "or")
+#coordenadas nas quais o símbolo será azul		
+        plt.plot(j, lista[j], "ob")
+        plt.title("Iteração-{}".format(posicao))
+        plt.xlabel("Índices")
+        plt.ylabel("Números")
+        plt.savefig("fig/bubble-it-{}.png".format(posicao))
+        plt.close()
 # indica que caso o valor de i seja maior que o do j, temp irá assumir o valor de i, depois i o valor de j e por fim j o de temp. Representa uma troca de valores.
 # temp é uma variável temporaria, para que os valores de i e j, com o intuito de serem trocados de lugar, não sejam perdidos.
         if lista[i] > lista[j]:
@@ -34,7 +49,7 @@ for i in range(0,n-1,1):
             trocas = trocas + 1			
             plt.figure()	
             plt.plot(range(0,n), lista, "ok")
-            plt.title("Lista com ordem crescente")
+            plt.title("Troca-{}".format(trocas))
             plt.xlabel("Índices")
             plt.ylabel("Números")
             plt.savefig("fig/bubble-troca-{}.png".format(trocas))
